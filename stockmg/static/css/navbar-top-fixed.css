@@ -1,0 +1,6 @@
+/* Show it is fixed to the top */
+body {
+  background-color: wheat;
+  min-height: 75rem;
+  padding-top: 4.5rem;
+}

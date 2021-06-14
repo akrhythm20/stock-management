@@ -1,0 +1,119 @@
+{% include 'navbar.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+<link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>List Items</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/navbar-fixed/">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+    .display_table{
+      border-bottom-right-radius : 20px;
+      padding-left : 5px;
+      padding-right : 5px;
+      padding-bottom : 20px;
+      box-shadow : 12px 12px 20px 6px #2e6da4;
+  }
+.table{
+    font-size: 13px;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+}
+
+.table tr:nth-child(odd){
+    background: #BBCAEA;
+}
+
+
+.table tr:nth-child(even){
+    background: #dae5f4;
+}
+
+th{
+    background-color: #337ab7;
+    color: white;
+}
+
+  .header{
+    font-family: helvetica;
+    color : #337ab7;
+    font-size:50px;
+    text-align:center;
+    width:100%;
+    text-shadow: 6px 6px 6px #c9c6c6;
+    display:block;
+    font-weight:bolder:
+    }
+  .success{
+    margin-top : 20px;
+    padding : 5px;
+    list-style: none;
+    background-color: #2e6da4;
+    color: white;
+    box-shadow:6px 6px 6px gray;
+    text-align:center;
+  }
+    </style>
+  </head>
+  <body>
+
+
+<main role="main" class="container">
+  {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+        <li {% if message.tags %} class="{{message.tags}}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+  {% endif %}
+  <div class="jumbotron my-4">
+    <div class="header">{{header}}</div>
+    <a href="{% url 'issue_items' QuerySet.id %}"><div class="btn btn-danger">ISSUE THIS ITEM</div></a>
+    <a href="{% url 'receive_items' QuerySet.id %}"><div class="btn btn-primary">RECEIVE THIS ITEM</div></a>
+    <br><br>
+    <div class="display_table">
+      <table class="table">
+        <tr>
+          <th>Item Name</th>
+          <th>Quantity in Store</th>
+          <th>Last Updated</th>
+          <th>Reorder Level</th>
+        </tr>
+        <tr>
+          <td>{{QuerySet.item_name}}</td>
+          <td>{{QuerySet.quantity}}</td>
+          <td>{{QuerySet.last_updated}}</td>
+          <td>{{QuerySet.reorder_level}}</td>
+        </tr>
+      </table>
+
+    </div>
+    </div>
+</main>
+
+  </body>
+</html>

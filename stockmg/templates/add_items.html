@@ -1,0 +1,65 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% include 'navbar.html' %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Add Items</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/navbar-fixed/">
+
+    <style>
+      .title{
+      font-family: helvetica;
+      color : #337ab7;
+      width:100%;
+      display:block;
+      font-weight:bolder:
+    }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .display_table{
+      border-bottom-right-radius : 20px;
+      padding-left : 20px;
+      padding-right : 20px;
+      padding-bottom : 20px;
+      box-shadow : 12px 12px 20px 8px #2e6da4;
+  }
+    </style>
+  </head>
+  <body>
+<main role="main" class="container">
+  <div class="jumbotron my-3">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-5 display_table"><br>
+        <h3  class='title'><b>{{title}}</b></h3>
+      <form method="POST" action="">{% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" class="btn btn-danger" value="save"/>
+        <a href="/list_items"><div class="btn btn-secondary">Back</div></a>
+    </form>
+        </div>
+      <div class="col-sm-6 text-center my-3"> <img class="my-3" src="{% static 'img/store.png' %}"></div>
+      </div>
+    </div>
+</main>
+
+  </body>
+</html>
