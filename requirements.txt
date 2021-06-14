@@ -38,7 +38,6 @@ opencv-python==4.5.1.48
 phonenumbers==8.12.17
 Pillow==8.1.0
 psycopg2==2.8.6
-PyAudio @ file:///C:/Users/asus/downloads/PyAudio-0.2.11-cp39-cp39-win_amd64.whl
 PyAutoGUI==0.9.52
 pycryptodome==3.10.1
 pygeocoder==1.2.5
